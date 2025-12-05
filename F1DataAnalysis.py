@@ -20,12 +20,18 @@ tel2 = lap2.get_telemetry()
 
 #Plotting
 plt.figure(figsize=(12, 5))
-plt.plot(tel1['Distance'], tel1['Speed'], label='VER Speed')
-plt.plot(tel2['Distance'], tel2['Speed'], label='HAM Speed')
+#plt.plot(tel1['Distance'], tel1['Speed'], label='VER Speed')
+#plt.plot(tel2['Distance'], tel2['Speed'], label='HAM Speed')
 
-plt.title("Speed Trace Comparison - Ham vs VER")
+#Adding Throttle and Brake Traces
+#plt.plot(tel1['Distance'], tel1['Throttle'], label='VER Throttle')
+plt.plot(tel1['Distance'], tel1['Brake'], label='VER Brake')
+#plt.plot(tel2['Distance'], tel2['Throttle'], label='HAM Throttle')
+plt.plot(tel2['Distance'], tel2['Brake'], label='HAM Brake')
+    
+plt.title("Brake Trace Comparison - Ham vs VER")
 plt.xlabel("Distance (m)")
-plt.ylabel("Speed (km/h)")
+plt.ylabel("Brake Position (%)")
 plt.legend()
 plt.grid(True)
 plt.show()
